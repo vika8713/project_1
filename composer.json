@@ -1,0 +1,14 @@
+{	"name": "vika8713/project",
+	"version":"master",
+	"repositories": [
+		{
+			"type" : "vcs",
+			"url" : "https://github.com/vika8713/project_1"
+		}
+	],
+	"autoload": {
+        "psr-0": {
+		"class": "./"
+		}
+    }
+}	
