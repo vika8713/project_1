@@ -1,7 +1,7 @@
 <?php
 namespace TownProject;
 //header("Content-Type: text/html; charset=utf-8");
-include_once 'flat.php';
+//include_once 'flat.php';
 
  
 class House {
