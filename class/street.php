@@ -1,4 +1,5 @@
 <?php
+namespace TownProject;
 //	header("Content-Type: text/html; charset=utf-8");
 	include_once 'house.php';
 	
@@ -62,6 +63,9 @@
 			echo "Количество дворников - ".$this->getCleaner()."<br>";
 			echo "Коммунальные платежи со всех домов - ".$this->getTotalStreetBill()."  грн<br>";
 			echo "Общий налог на землю - ".$this->getTotalStreetTax()."  грн<br>";
+			foreach ($this->houses as $key=>$value){
+				echo $this->houses[$key]->getHouseInfo();
+			}
 		} 
 	
 		 public function showHouses(){

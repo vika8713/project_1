@@ -1,21 +1,24 @@
 ﻿<?php
+namespace TownProject;
 	//header("Content-Type: text/html; charset=utf-8");
 	include_once 'street.php';
 	include_once 'house.php';
 	include_once 'flat.php';
 	
+	
 	class Town {
 		public $nameTown;
 		public $creationYear;
-		public $geoCoord  = array ('x' => 0, 'y' => 0);
-		public $arrSreet;
+		public $geoCoord;
+		public $arrSreet; 
 		public $streetCount;
 		
-		public function __construct($nameTown, $creationYear, $geoCoord, $streetCount, $streetsnames){
-			$this->nameTown = $nameTown;
-			$this->creationYear = $creationYear;
-			$this->geoCoord = $geoCoord;
-			$this->streetCount = $streetCount;
+		public function __construct(){
+			$this->nameTown = $nameTown= array_rand(array("Хацапетовка", "Харьков", "Мерчик", "Лесное"));
+			$this->creationYear = $creationYear= rand(1970, 1999);
+			$this->geoCoord = $geoCoord = array ('x' => rand(100,10000)*0.01, 'y' => rand(100,10000)*0.01);
+			$this->streetCount = $streetCount = rand(1, 6);
+			$streetsnames = array("Петрова", "Иванова", "Гагарина", "Пушкинская", "Сумская", "Солнечная");
 			for ($i = 0; $i < $this->streetCount; $i++){
 				$this->arrSreet[$i] = new Street($streetsnames[$i], rand(1,5), array ('x' => rand(100,10000)*0.01, 'y' => rand(500,10000)*0.01), array ('x' => rand(100,10000)*0.01, 'y' => rand(500,10000)*0.01), rand(5,20));
 			}
@@ -46,9 +49,18 @@
 			echo "<br>Информация о городе<br><br>" ;
           	echo "Название города - " .$this->nameTown."<br>";
           	echo "Год основания - ".$this->creationYear."<br>";
+			echo "Количество улиц - ".$this->streetCount."<br>";
           	echo "Географические координаты - ".$this->geoCoord['x']."&nbsp;&nbsp;&nbsp;".$this->geoCoord['y']."<br>";
           	echo "Бюджет - ". $this->getBudget()."<br>";
 		  	echo "Население - ". $this->getPopulation()."<br>";
+			foreach ($this->arrSreet as $key=>$value){
+				$this->arrSreet[$key]->getStreetInfo();
+			}
+		}
+		
+		public function getJSON(){
+			$arr = array("nameTown"=>$this->nameTown,"creationYear"=>$this->creationYear, "geoCoord"=>$this->geoCoord,"budget"=>$this->getBudget(),"population"=>$this->getPopulation());
+			return json_encode($arr);
 		}
 	}
 	

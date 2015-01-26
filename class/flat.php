@@ -1,5 +1,5 @@
 <?php
-//header("Content-Type: text/html; charset=utf-8");
+namespace TownProject;
   class Flat{
       public $squere;
       public $balcony;
@@ -26,21 +26,20 @@
       }
       
       public function infoFlat(){
-           echo "Информация о квартире";
-           echo "</br>";
-           echo "</br>";
+           //echo "Информация о квартире";
+           //echo "</br>";
+           //echo "</br>";
            echo "Площадь квартиры = ".$this->squere;
-           echo "</br>";
+           echo "&nbsp;&nbsp;&nbsp;";
            echo "Количество комнат = ".$this->rooms;
-           echo "</br>";
+           echo  "&nbsp;&nbsp;";
            echo "Этаж квартиры = ".$this->floor;
-           echo "</br>";
+           echo  "&nbsp;&nbsp;";
            echo "Количество жильцов = ".$this->people;
-           echo "</br>";
+           echo  "&nbsp;&nbsp;";
            echo "Тип отопления = ".$this->heating;
-           echo "</br>";
+           echo  "&nbsp;&nbsp;";
            echo "Количество балконов= ".$this->balcony;
-           echo "</br>";
            echo "</br>";
       }
       

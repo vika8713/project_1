@@ -1,7 +1,8 @@
 <?php
-
+namespace TownProject;
 //header("Content-Type: text/html; charset=utf-8");
 include_once 'flat.php';
+
  
 class House {
       public $number;
@@ -48,14 +49,17 @@ class House {
       
       public function getHouseInfo(){
           echo "<br>Информация о доме<br><br>" ;
-          echo "Номер дома -" .$this->number."<br>";
-          echo "Количество подъездов - ".$this->sections."<br>";
-          echo "Количество этажей - ".$this->floorCom."<br>";
-          echo "Количество квартир - ". $this->getTotalFlats()."<br>";
+          echo "Номер дома -" .$this->number." ";
+          echo "Количество подъездов - ".$this->sections." ";
+          echo "Количество этажей - ".$this->floorCom." ";
+          echo "Количество квартир - ". $this->getTotalFlats()." ";
           echo "Площадь прилегающей территории - ".$this->areaTerr."<br>";
-          echo "Счет по дому - ".$this->getTotalBill()."<br>";
-          echo "Счет по электричеству - ".$this-> getElectricBill()."<br>";
+          echo "Счет по дому - ".$this->getTotalBill()." ";
+          echo "Счет по электричеству - ".$this-> getElectricBill()." ";
           echo "Налог - ".$this-> getTaxBill()."<br>";
+		  foreach($this->arrFlat as $key=>$value){
+			echo $this->arrFlat[$key]->infoFlat();
+		  }
       }
 	  
 		public function showFlats(){
