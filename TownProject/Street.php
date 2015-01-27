@@ -19,7 +19,7 @@ namespace TownProject;
 			$this->coordsOfEnd = $coordsOfEnd;
 			$this->houseCount = $houseCount;
 			for ($i=0; $i < $this->houseCount; $i++){
-				$this->houses[$i] = new House($i+1, rand(1,5), rand(1,9), rand(2,5), rand(50,1000));
+				$this->houses[$i] = new House($i+1, rand(1,5), rand(1,9), rand(2,4), rand(50,1000));
 			}
 		}
 		
